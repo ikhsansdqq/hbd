@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg-primary: #f5f4f0; /* Muted paper white */
+  --bg-secondary: #ebe9e1; /* Slightly darker pastel for contrast */
+  --text-primary: #2c2f33; /* Ink charcoal */
+  --text-secondary: #63686d; /* Faded ink */
+  --accent-color: #b59b9b; /* Muted cherry blossom/rose */
+  --accent-hover: #9c8282;
+
+  --envelope-body: #d9d4c5; /* Earthy pastel */
+  --envelope-flap: #e6e1d3;
+  --envelope-inside: #c4beaf;
+
+  --font-sans: "Inter", sans-serif;
+  --font-handwriting: "Caveat", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  /* Strict adherence: NO shadows, NO gradients */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Base utilities for flat design */
+.flat-border {
+  border: 2px solid var(--text-primary);
+}
+
+.flat-panel {
+  background-color: white;
+  border: 2px solid var(--text-primary);
+}
+
+/* Lenis Smooth Scrolling Base CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

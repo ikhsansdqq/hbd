@@ -1,0 +1,62 @@
+.photo-collage-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collage-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+}
+
+.collage-masonry {
+  /* Using CSS columns for masonry layout */
+  column-count: 3;
+  column-gap: 2rem;
+}
+
+.collage-stamp {
+  display: inline-block; /* Prevent breaking across columns */
+  width: 100%;
+  margin-bottom: 2rem; /* Replaces gap/margin between rows */
+  position: relative;
+  
+  /* Stamp / Polaroid aesthetic */
+  background-color: white;
+  padding: 12px;
+  padding-bottom: 40px; /* Thicker bottom for polaroid look */
+  border: 2px solid var(--text-primary);
+}
+
+.stamp-inner {
+  width: 100%;
+  border: 1px solid var(--text-primary);
+  overflow: hidden;
+}
+
+.stamp-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Keep images sharp */
+}
+
+/* Responsive columns */
+@media (max-width: 900px) {
+  .collage-masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .collage-masonry {
+    column-count: 1;
+  }
+  .photo-collage-container {
+    padding: 2rem 1rem;
+  }
+}
