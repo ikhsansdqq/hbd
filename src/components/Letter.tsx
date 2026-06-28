@@ -60,8 +60,17 @@ export default function Letter({ onClose }: Props) {
           </div>
 
           <div className="bp-message-box">
+            <p className="bp-message" style={{ marginBottom: '1rem' }}>
+              Dear Najla Asyifa, pacar aku, sayangnya aku, cantiknya akuu
+            </p>
+            <p className="bp-message" style={{ marginBottom: '1rem' }}>
+              Selamat ulang tahun ya yang ke-23! Aku berdoa kamu selalu dikasih rizki yang lancar, lancar juga thesisnya, insyaallah lulus tahun ini, kamu bisa banggain mamah, papah, sama hanna, jadi contoh yang baik buat hanna, buat bahagia juga diri kamu sendiri jangan lupa, karena kadang orang kaya kita yang ambisius sama pencapaian, jadi suka lupa buat bahagian diri sendiri. Aku bangga sama kamu yang udah all in buat beresin thesis kamu, buat tanggung jawab sama pendidikan kamu, dengerin curhat kamu juga tentang thesis ini yang sangat diperjuangkan, meskipun hasilnya belum sesuai dengan apa yang kamu inginkan, setidaknya kamu udah berjuang di sana
+            </p>
+            <p className="bp-message" style={{ marginBottom: '1rem' }}>
+              Di umur yang ke 23 tahun ini aku cuman pengen nyampein ke kamu, jangan lupa bahagian diri kamu sendiri, orang terdekat kamu yang kamu sayang, makin sholehah neng, panjang umur, diberi kebaikan selalu yang menanti ke depannya, bisa ngeraih yang kamu mau, yang kamu cita-citakan dari lama, ga kerasa ternyata ya karena ternyata pertama kali aku ngucapin selamat ulang tahun ke kamu itu waktu kamu 17 tahun yang lalu, udah 6 tahun yang lalu ya ternyata hehe (aku masih 19 tahun)
+            </p>
             <p className="bp-message">
-              Happy Birthday, my dearest. Every single moment spent with you feels like a dream. Thank you for being my rock, my joy, and my everything. I can't wait to see what the future holds for us. I love you more than words can express.
+              Terakhir, aku bangga sama kamu Najla Asyifa, pacar aku, salah satu orang yang aku sayang, selamat ulang tahun ya sayang 🥳🫶
             </p>
           </div>
         </div>

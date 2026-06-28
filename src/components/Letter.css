@@ -137,6 +137,20 @@
   border-radius: 8px;
   border: 1px solid var(--text-primary);
   margin-top: 1rem;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for the message box to look elegant */
+.bp-message-box::-webkit-scrollbar {
+  width: 6px;
+}
+.bp-message-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.bp-message-box::-webkit-scrollbar-thumb {
+  background-color: var(--text-secondary);
+  border-radius: 10px;
 }
 
 .bp-message {
