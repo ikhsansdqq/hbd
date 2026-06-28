@@ -12,7 +12,7 @@ export default function Timeline() {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8 }}
       >
-        Our Journey
+        Hey! Today's yours anyway!
       </motion.h2>
 
       <div className="timeline-wrapper">
@@ -28,7 +28,7 @@ export default function Timeline() {
           <div className="timeline-dot" />
           <div className="timeline-content flat-panel">
             <h3>The First Date</h3>
-            <p>Where it all began. A simple coffee that turned into hours of talking.</p>
+            <p>Our first date was began when we watched Aladdin back in 2019, we had a great time there, and it's just the beginning of our story.</p>
           </div>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function Timeline() {
           <div className="timeline-dot" />
           <div className="timeline-content flat-panel">
             <h3>And Many More...</h3>
-            <p>Every day is a new adventure with you. Let's make more memories.</p>
+            <p>Every day is a new adventure with you.</p>
           </div>
         </motion.div>
       </div>

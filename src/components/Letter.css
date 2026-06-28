@@ -1,26 +1,323 @@
-.letter-container {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  border: 2px solid var(--text-primary);
+/* Fullscreen Overlay Wrapper */
+.boarding-pass-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
+  align-items: flex-start; /* Use flex-start so it doesn't push tall content off the top */
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem 1rem;
   overflow-y: auto;
 }
 
-.letter-content {
-  font-family: var(--font-handwriting);
+/* The Ticket Itself */
+.boarding-pass {
+  display: flex;
+  flex-direction: row;
+  margin: auto; /* Magically centers when small, sticks to top when tall! */
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  border: 2px solid var(--text-primary);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
 }
 
-.letter-greeting {
-  font-size: 2rem;
+/* Main Section */
+.bp-main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--text-primary);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.airline-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.bp-flight-class {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
   color: var(--accent-color);
-  margin-bottom: 1rem;
 }
 
-.letter-text {
+/* Body / Fields */
+.bp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bp-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bp-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.bp-field.right-align {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.bp-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.bp-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bp-value.lg {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.bp-value.sm {
+  font-size: 0.9rem;
+}
+
+.destination-row {
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.plane-icon-large {
+  color: var(--accent-color);
+  opacity: 0.5;
+}
+
+.bp-row.flex-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  border-top: 2px dashed #ddd;
+  border-bottom: 2px dashed #ddd;
+  padding: 1rem 0;
+}
+
+/* Message Box */
+.bp-message-box {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--text-primary);
+  margin-top: 1rem;
+}
+
+.bp-message {
+  font-family: var(--font-handwriting);
   font-size: 1.5rem;
   line-height: 1.4;
   color: var(--text-primary);
+}
+
+/* Perforated Divider */
+.bp-divider {
+  width: 2px;
+  background-image: linear-gradient(
+    to bottom,
+    var(--text-primary) 50%,
+    transparent 50%
+  );
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  position: relative;
+}
+
+.notch {
+  position: absolute;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-primary); /* matches backdrop or overlay */
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+}
+.notch.top {
+  top: -12px;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+.notch.bottom {
+  bottom: -12px;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+/* Stub Section */
+.bp-stub {
+  width: 250px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #faf9f6;
+}
+
+.bp-stub-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bp-barcode-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barcode-bars {
+  width: 100%;
+  height: 50px;
+  /* CSS Fake Barcode */
+  background: linear-gradient(
+    to right,
+    #000 0%,
+    #000 5%,
+    transparent 5%,
+    transparent 8%,
+    #000 8%,
+    #000 10%,
+    transparent 10%,
+    transparent 15%,
+    #000 15%,
+    #000 22%,
+    transparent 22%,
+    transparent 24%,
+    #000 24%,
+    #000 30%,
+    transparent 30%,
+    transparent 35%,
+    #000 35%,
+    #000 36%,
+    transparent 36%,
+    transparent 40%,
+    #000 40%,
+    #000 48%,
+    transparent 48%,
+    transparent 50%,
+    #000 50%,
+    #000 55%,
+    transparent 55%,
+    transparent 60%,
+    #000 60%,
+    #000 63%,
+    transparent 63%,
+    transparent 65%,
+    #000 65%,
+    #000 70%,
+    transparent 70%,
+    transparent 75%,
+    #000 75%,
+    #000 78%,
+    transparent 78%,
+    transparent 85%,
+    #000 85%,
+    #000 90%,
+    transparent 90%,
+    transparent 95%,
+    #000 95%,
+    #000 100%
+  );
+}
+
+.barcode-numbers {
+  margin-top: 0.5rem;
+  font-family: monospace;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.bp-close-btn {
+  margin-top: 2rem;
+  padding: 0.75rem;
+  background-color: var(--text-primary);
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.bp-close-btn:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Mobile Layout (Stack vertically instead of horizontally) */
+@media (max-width: 768px) {
+  .boarding-pass {
+    flex-direction: column;
+  }
+
+  .bp-main {
+    padding: 1.5rem;
+  }
+
+  .bp-row.flex-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bp-divider {
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      var(--text-primary) 50%,
+      transparent 50%
+    );
+    background-size: 12px 2px;
+    background-repeat: repeat-x;
+  }
+
+  .notch.top {
+    left: -12px;
+    top: -10px;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+  }
+
+  .notch.bottom {
+    left: auto;
+    right: -12px;
+    top: -10px;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  }
+
+  .bp-stub {
+    width: 100%;
+    padding: 1.5rem;
+  }
 }

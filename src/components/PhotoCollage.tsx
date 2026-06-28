@@ -32,7 +32,7 @@ export default function PhotoCollage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        Precious Memories
+        Our Photos Together Btw..
       </motion.h2>
 
       <div className="collage-masonry">

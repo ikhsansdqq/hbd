@@ -54,6 +54,12 @@ function App() {
 
     const lenis = new Lenis();
 
+    const stop = () => lenis.stop();
+    const start = () => lenis.start();
+
+    window.addEventListener('stopScroll', stop);
+    window.addEventListener('startScroll', start);
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -62,6 +68,8 @@ function App() {
     requestAnimationFrame(raf);
 
     return () => {
+      window.removeEventListener('stopScroll', stop);
+      window.removeEventListener('startScroll', start);
       lenis.destroy();
     };
   }, [isLoading]);
