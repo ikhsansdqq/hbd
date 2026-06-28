@@ -5,11 +5,13 @@ import Timeline from './components/Timeline';
 import PhotoCollage from './components/PhotoCollage';
 import Wishes from './components/Wishes';
 import LoadingScreen from './components/LoadingScreen';
+import PrankScreen from './components/PrankScreen';
 import { PHOTO_URLS, VIDEO_URLS } from './constants';
 
 function App() {
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPrankPassed, setIsPrankPassed] = useState(false);
 
   useEffect(() => {
     let loaded = 0;
@@ -48,9 +50,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Only initialize Lenis smooth scrolling once the loading screen is fully gone
-    // This prevents the user from scrolling the timeline while videos are still loading.
-    if (isLoading) return;
+    // Only initialize Lenis smooth scrolling once the loading screen AND prank are gone
+    if (isLoading || !isPrankPassed) return;
 
     const lenis = new Lenis();
 
@@ -72,7 +73,7 @@ function App() {
       window.removeEventListener('startScroll', start);
       lenis.destroy();
     };
-  }, [isLoading]);
+  }, [isLoading, isPrankPassed]);
 
   return (
     <div className="app-container">
@@ -83,10 +84,23 @@ function App() {
         />
       )}
 
-      <Hero />
-      <Timeline />
-      <PhotoCollage />
-      <Wishes />
+      {(!isLoading && !isPrankPassed) && (
+        <PrankScreen onComplete={() => setIsPrankPassed(true)} />
+      )}
+
+      {/* Hide the main site content until the prank is passed */}
+      <div
+        style={{
+          opacity: (!isLoading && isPrankPassed) ? 1 : 0,
+          pointerEvents: (!isLoading && isPrankPassed) ? 'auto' : 'none',
+          transition: 'opacity 0.5s ease-in'
+        }}
+      >
+        <Hero />
+        <Timeline />
+        <PhotoCollage />
+        <Wishes />
+      </div>
     </div>
   );
 }

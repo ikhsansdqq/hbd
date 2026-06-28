@@ -1,0 +1,77 @@
+.prank-screen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998; /* just below the LoadingScreen which is 9999 */
+  font-family: "Inter", sans-serif;
+}
+
+.prank-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px; /* Give it some height so the button can run around */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.prank-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.prank-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.prank-btn {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.prank-btn:active {
+  transform: scale(0.95);
+}
+
+.yes-btn {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border: 2px solid var(--text-primary);
+}
+
+.yes-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+.no-btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--text-secondary);
+  position: relative; /* important for framer-motion x/y to work smoothly relative to its flex position */
+}

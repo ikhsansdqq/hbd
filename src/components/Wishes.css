@@ -6,17 +6,59 @@
   align-items: center;
 }
 
-.wishes-content {
+.wishes-content.pinned-letter {
   max-width: 600px;
   width: 100%;
-  padding: 3rem;
+  padding: 4rem 3rem 3rem 3rem; /* Extra top padding for the pin */
   text-align: center;
+  background-color: #fdfaf0; /* Slightly warm paper color */
+  border: 1px solid #e0dcd0;
+  box-shadow: 2px 8px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  position: relative;
+}
+
+.pushpin {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b);
+  border-radius: 50%;
+  box-shadow: 
+    -2px 4px 6px rgba(0,0,0,0.3), /* shadow from the pin head */
+    inset -2px -2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.pushpin::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  width: 15px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(35deg);
+  z-index: -1;
 }
 
 .wishes-content h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.brush-text {
+  font-family: var(--font-handwriting);
+  font-size: 2.8rem !important; /* Slightly larger for handwriting */
+  font-weight: 400 !important;
+  line-height: 1.3;
+  margin-bottom: 1rem !important;
   color: var(--text-primary);
+  /* The clip-path animation in Framer Motion handles the 'brush' reveal effect */
 }
 
 .wishes-content p {
@@ -32,13 +74,27 @@
 .wishes-textarea {
   width: 100%;
   padding: 1rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  resize: vertical;
-  background-color: var(--bg-primary);
+  font-family: var(--font-handwriting);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  resize: none; /* disable resize for cleaner look */
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 1.5rem,
+    rgba(0, 0, 0, 0.1) 1.5rem,
+    rgba(0, 0, 0, 0.1) calc(1.5rem + 1px)
+  );
+  background-attachment: local;
+  border: none;
+  border-left: 2px solid rgba(231, 76, 60, 0.3); /* Red margin line like notebook */
   outline: none;
-  transition: background-color 0.2s;
-  margin-bottom: 1.5rem; /* Replaces flex gap */
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.wishes-textarea::placeholder {
+  font-family: var(--font-handwriting);
+  opacity: 0.5;
 }
 
 .wishes-textarea:focus {
@@ -65,9 +121,8 @@
 }
 
 .wishes-success {
-  padding: 2rem;
-  background-color: var(--bg-secondary);
-  border: 2px solid var(--text-primary);
+  padding: 3rem 2rem;
+  background-color: transparent; /* inherit paper color */
 }
 
 .wishes-success h3 {

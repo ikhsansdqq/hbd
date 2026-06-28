@@ -16,13 +16,22 @@ export default function Wishes() {
   return (
     <div className="wishes-container">
       <motion.div
-        className="wishes-content flat-panel"
-        initial={{ opacity: 0, y: 50, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        className="wishes-content pinned-letter"
+        initial={{ opacity: 0, y: 50, scale: 0.95, rotate: 0 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1, rotate: -2 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2>Your Wishes</h2>
+        <div className="pushpin"></div>
+        <motion.h2
+          className="brush-text"
+          initial={{ clipPath: 'inset(0 100% 0 0)' }}
+          whileInView={{ clipPath: 'inset(0 0% 0 0)' }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 2.5, ease: "linear" }}
+        >
+          Happy Birthday to my beloved people, wish you all the best
+        </motion.h2>
         <p>Leave a message to celebrate this special day.</p>
 
         {!submitted ? (
